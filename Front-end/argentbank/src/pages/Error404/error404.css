@@ -1,0 +1,78 @@
+.error404 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 700;
+  gap: 2rem;
+  text-align: center;
+}
+
+.error404 span {
+  font-size: 288px;
+}
+.error404 p {
+  font-size: 36px;
+  padding: 0;
+}
+.error404 a {
+  color: #12002b;
+  outline: none;
+  text-decoration: none;
+  margin-bottom: 3rem;
+}
+.error404 a:hover {
+  border-bottom: 1px solid;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.main-nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.main-nav a.router-link-exact-active {
+  color: #42b983;
+}
+
+.main-nav-item {
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+.main-nav-item:hover {
+  text-decoration: underline;
+}
+
+.main-nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav-logo-image {
+  max-width: 100%;
+  width: 200px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .error404 {
+    justify-content: space-around;
+    height: 65vh;
+  }
+
+  .error404 a {
+    margin-bottom: 4rem;
+  }
+
+  .error404 p {
+    font-size: 18px;
+  }
+  .error404 span {
+    font-size: 96px;
+  }
+}

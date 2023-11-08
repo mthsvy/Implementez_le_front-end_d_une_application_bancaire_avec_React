@@ -1,5 +1,4 @@
 import Nav from "../../components/Nav";
-import Footer from "../../components/Footer";
 import ArgentBalance from "../../components/ArgentBalance";
 import "./user.css";
 
@@ -33,7 +32,6 @@ function User() {
           description="Current Balance"
         />
       </main>
-      <Footer />
     </div>
   );
 }

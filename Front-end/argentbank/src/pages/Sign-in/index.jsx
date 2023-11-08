@@ -1,5 +1,4 @@
 import Nav from "../../components/Nav";
-import Footer from "../../components/Footer";
 import FormSignIn from "../../components/FormSignIn";
 import "./signin.css";
 
@@ -14,7 +13,6 @@ function SignIn() {
           <FormSignIn />
         </section>
       </main>
-      <Footer />
 
       <script></script>
     </div>

@@ -1,4 +1,3 @@
-import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 import IconTag from "../../components/IconTag";
 import Hero from "../../components/Hero";
@@ -36,7 +35,6 @@ function Home() {
           />
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

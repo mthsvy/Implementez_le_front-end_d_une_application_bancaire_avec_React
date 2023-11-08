@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/Sign-in";
 import User from "./pages/User";
 import Error404 from "./pages/Error404";
+import Footer from "./components/Footer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
+      <Footer />
     </Router>
   </React.StrictMode>
 );
