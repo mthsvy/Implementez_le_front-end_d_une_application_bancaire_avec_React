@@ -6,7 +6,6 @@ import "./home.css";
 import IconChat from "../../assets/icon-chat.png";
 import IconMoney from "../../assets/icon-money.png";
 import IconSecurity from "../../assets/icon-security.png";
-
 function Home() {
   return (
     <div>

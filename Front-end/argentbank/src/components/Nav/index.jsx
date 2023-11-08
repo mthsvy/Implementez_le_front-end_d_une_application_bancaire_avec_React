@@ -1,4 +1,5 @@
 import ArgentBankLogo from "../../assets/argentBankLogo.png";
+import "./nav.css";
 
 function Nav() {
   return (
