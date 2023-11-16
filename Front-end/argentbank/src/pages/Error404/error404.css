@@ -17,11 +17,11 @@
 .error404 a {
   color: #12002b;
   outline: none;
-  text-decoration: none;
   margin-bottom: 3rem;
 }
 .error404 a:hover {
-  border-bottom: 1px solid;
+  text-decoration: underline;
+  color: red;
 }
 
 .main-nav {
