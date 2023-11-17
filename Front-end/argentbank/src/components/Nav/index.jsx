@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import ArgentBankLogo from "../../assets/argentBankLogo.png";
 import "./nav.css";
+import { useDispatch, useSelector } from "react-redux";
+import { Logout } from "../../actions/post.action";
 
 function Nav() {
+  const user = useSelector((state) => state.token);
+  const dispatch = useDispatch();
+
   return (
     <nav className="main-nav">
       <Link to="/" className="main-nav-logo">
@@ -13,11 +18,23 @@ function Nav() {
         />
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
+
       <div>
-        <Link to="/sign-in" className="main-nav-item">
-          <i className="fa fa-user-circle"></i>
-          Sign In
-        </Link>
+        {user.token === "" ? (
+          <Link to="/sign-in" className="main-nav-item">
+            <i className="fa fa-user-circle"></i>
+            Sign In
+          </Link>
+        ) : (
+          <a
+            href=" "
+            onClick={() => Logout(dispatch)}
+            className="main-nav-item"
+          >
+            <i className="fa fa-user-circle"></i>
+            Sign Out
+          </a>
+        )}
       </div>
     </nav>
   );

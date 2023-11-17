@@ -16,3 +16,10 @@ export const Login = (data) => {
       });
   };
 };
+
+export const Logout = (dispatch) => {
+  return dispatch({
+    type: "connect",
+    payload: "",
+  });
+};
