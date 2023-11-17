@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArgentBankLogo from "../../assets/argentBankLogo.png";
 import "./nav.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +7,11 @@ import { Logout } from "../../actions/post.action";
 function Nav() {
   const user = useSelector((state) => state.token);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const disconnect = () => {
+    Logout(dispatch);
+    navigate("/");
+  };
 
   return (
     <nav className="main-nav">
@@ -26,11 +31,7 @@ function Nav() {
             Sign In
           </Link>
         ) : (
-          <a
-            href=" "
-            onClick={() => Logout(dispatch)}
-            className="main-nav-item"
-          >
+          <a href=" " onClick={() => disconnect()} className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             Sign Out
           </a>
