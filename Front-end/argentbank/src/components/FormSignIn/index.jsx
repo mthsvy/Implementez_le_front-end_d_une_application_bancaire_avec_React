@@ -1,28 +1,41 @@
 import { useState } from "react";
 import "./formsignin.css";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { Login } from "../../actions/post.action";
+import { login } from "../../actions/post.action";
 import { useNavigate } from "react-router-dom";
 function FormSignIn() {
-  const [userName, setUsername] = useState("");
+  const [userEmail, setUsername] = useState("");
   const [userPassword, setPassword] = useState("");
   const [userCheckbox, setCheckbox] = useState(false);
   const dispatch = useDispatch();
-  const Navigate = useNavigate();
-  const user = useSelector((state) => state.token);
+  const navigate = useNavigate();
 
-  const Connect = async () => {
+  const connect = async (event) => {
+    event.preventDefault();
     const data = {
-      email: userName,
+      email: userEmail,
       password: userPassword,
     };
+    try {
+      const response = await fetch("http://localhost:3001/api/v1/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        const data = await response.json();
 
-    dispatch(Login(data));
-
-    if (user.token !== "") {
-      console.log("connected");
-      Navigate("/");
+        const token = data.body.token;
+        dispatch(login(token));
+        navigate("/user/2");
+      } else {
+        const error = "Incorrect email/password";
+        console.log(error);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -34,7 +47,7 @@ function FormSignIn() {
           type="text"
           id="username"
           onChange={(event) => setUsername(event.target.value)}
-          value={userName}
+          value={userEmail}
         />
       </div>
       <div className="input-wrapper">
@@ -58,7 +71,7 @@ function FormSignIn() {
       {/* PLACEHOLDER DUE TO STATIC SITE*/}
 
       {/* SHOULD BE THE BUTTON BELOW */}
-      <button onClick={() => Connect()} className="sign-in-button">
+      <button onClick={connect} className="sign-in-button">
         Sign In
       </button>
     </div>

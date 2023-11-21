@@ -8,7 +8,7 @@ function Nav() {
   const user = useSelector((state) => state.token);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const disconnect = () => {
+  const disconnect = async () => {
     Logout(dispatch);
     navigate("/");
   };
@@ -31,7 +31,7 @@ function Nav() {
             Sign In
           </Link>
         ) : (
-          <a href=" " onClick={() => disconnect()} className="main-nav-item">
+          <a href=" " onClick={disconnect} className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             Sign Out
           </a>
