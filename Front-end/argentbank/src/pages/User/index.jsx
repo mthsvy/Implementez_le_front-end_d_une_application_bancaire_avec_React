@@ -5,9 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { userProfile } from "../../actions/post.action";
 import Profile from "../../components/Profile";
+import { useNavigate } from "react-router-dom";
 
 function User() {
   const token = useSelector((state) => state.token);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token || token.token === "") {
+      navigate("/Error404");
+      return;
+    }
+  });
   const dispatch = useDispatch();
   useEffect(() => {
     if (token) {
