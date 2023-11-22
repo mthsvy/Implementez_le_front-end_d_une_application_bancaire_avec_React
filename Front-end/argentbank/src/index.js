@@ -24,7 +24,7 @@ root.render(
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route path="/user/:id" element={<User />} />
+          <Route path="/user" element={<User />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<Error404 />} />

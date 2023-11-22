@@ -7,35 +7,45 @@ function FormSignIn() {
   const [userEmail, setUsername] = useState("");
   const [userPassword, setPassword] = useState("");
   const [userCheckbox, setCheckbox] = useState(false);
+  const [messageError, setError] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const connect = async (event) => {
-    event.preventDefault();
-    const data = {
-      email: userEmail,
-      password: userPassword,
-    };
-    try {
-      const response = await fetch("http://localhost:3001/api/v1/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      if (response.ok) {
-        const data = await response.json();
+    if (userEmail === "" && userPassword === "") {
+      setError("Empty Password/Email");
+    } else {
+      event.preventDefault();
+      const data = {
+        email: userEmail,
+        password: userPassword,
+      };
+      try {
+        const response = await fetch(
+          "http://localhost:3001/api/v1/user/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        );
 
-        const token = data.body.token;
-        dispatch(login(token));
-        navigate("/user/2");
-      } else {
-        const error = "Incorrect email/password";
-        console.log(error);
+        if (response.ok) {
+          const data = await response.json();
+
+          const token = data.body.token;
+          dispatch(login(token));
+          navigate("/user");
+        } else {
+          const error = "Incorrect email/password";
+          setError(error);
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   };
 
@@ -74,6 +84,7 @@ function FormSignIn() {
       <button onClick={connect} className="sign-in-button">
         Sign In
       </button>
+      <div className="error">{messageError}</div>
     </div>
   );
 }
