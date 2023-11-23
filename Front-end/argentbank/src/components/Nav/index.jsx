@@ -34,9 +34,8 @@ function Nav() {
             <span className="main-nav-item">
               {user.username} <i className="fa fa-user-circle"></i>&nbsp;
             </span>{" "}
-            /{" "}
             <a href=" " onClick={disconnect} className="main-nav-item">
-              &nbsp; Sign Out &nbsp;
+              Sign Out&nbsp;
               <i className="fa fa-sign-out" aria-hidden="true"></i>
             </a>
           </span>

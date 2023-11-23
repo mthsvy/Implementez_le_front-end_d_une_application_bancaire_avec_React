@@ -35,3 +35,21 @@
   max-width: 100%;
   width: 200px;
 }
+
+@media (max-width: 450px) {
+  .main-nav-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .main-nav-item:hover {
+    font-size: 13px;
+  }
+  span,
+  a {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    justify-content: space-around;
+  }
+}
