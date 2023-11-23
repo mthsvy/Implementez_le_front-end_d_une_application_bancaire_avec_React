@@ -31,10 +31,12 @@ function Nav() {
             Sign In
           </Link>
         ) : (
-          <a href=" " onClick={disconnect} className="main-nav-item">
-            <i className="fa fa-user-circle"></i>
-            Sign Out
-          </a>
+          <span>
+            {user.username} &nbsp;
+            <a href=" " onClick={disconnect} className="main-nav-item">
+              <i className="fa fa-user-circle"></i> &nbsp; Sign Out
+            </a>
+          </span>
         )}
       </div>
     </nav>
