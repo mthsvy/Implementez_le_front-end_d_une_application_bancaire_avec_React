@@ -4,8 +4,6 @@ export const initialState = {
   username: "",
   firstname: "",
   lastname: "",
-  email: "",
-  id: "",
 };
 
 export default function userReducer(state = initialState, action) {
@@ -20,8 +18,6 @@ export default function userReducer(state = initialState, action) {
       draft.username = action.payload.username;
       draft.firstname = action.payload.firstname;
       draft.lastname = action.payload.lastname;
-      draft.email = action.payload.email;
-      draft.id = action.payload.id;
     });
   }
   if (action.type === "username") {

@@ -27,8 +27,7 @@ function Nav() {
       <div>
         {user.token === "" ? (
           <Link to="/sign-in" className="main-nav-item">
-            <i className="fa fa-user-circle"></i>
-            Sign In
+            <i className="fa fa-user-circle"></i> &nbsp; Sign In
           </Link>
         ) : (
           <span>
