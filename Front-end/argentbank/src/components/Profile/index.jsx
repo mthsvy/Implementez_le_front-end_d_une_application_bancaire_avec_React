@@ -11,10 +11,11 @@ function Profile() {
   const dispatch = useDispatch();
 
   const updateUserName = async (event) => {
+    event.preventDefault();
+
     if (username === "") {
       setErrorMessage("Empty Username");
     } else {
-      event.preventDefault();
       const data = {
         userName: username,
       };
