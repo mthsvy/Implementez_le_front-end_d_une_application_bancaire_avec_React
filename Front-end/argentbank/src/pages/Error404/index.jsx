@@ -1,6 +1,6 @@
 import "./error404.css";
 import { Link } from "react-router-dom";
-import ArgentBankLogo from "../../assets/argentBankLogo.png";
+import ArgentBankLogo from "../../assets/argentBankLogo.webp";
 
 function Error404() {
   return (

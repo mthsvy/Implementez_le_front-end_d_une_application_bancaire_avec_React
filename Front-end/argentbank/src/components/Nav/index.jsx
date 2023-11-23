@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import ArgentBankLogo from "../../assets/argentBankLogo.png";
+import ArgentBankLogo from "../../assets/argentBankLogo.webp";
 import "./nav.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Logout } from "../../actions/post.action";
@@ -38,7 +38,7 @@ function Nav() {
             /{" "}
             <a href=" " onClick={disconnect} className="main-nav-item">
               &nbsp; Sign Out &nbsp;
-              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              <i className="fa fa-sign-out" aria-hidden="true"></i>
             </a>
           </span>
         )}
