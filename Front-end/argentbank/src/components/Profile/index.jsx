@@ -1,14 +1,52 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./profile.css";
+import { userName } from "../../actions/post.action";
 
 function Profile() {
   const user = useSelector((state) => state.token);
-  console.log(user);
   const [display, setDisplay] = useState(true);
   const [username, setUserName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const updateUserName = () => {};
+  const dispatch = useDispatch();
+
+  const updateUserName = async (event) => {
+    if (username === "") {
+      setErrorMessage("Empty Username");
+    } else {
+      event.preventDefault();
+      const data = {
+        userName: username,
+      };
+      try {
+        const response = await fetch(
+          "http://localhost:3001/api/v1/user/profile",
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${user.token}`,
+            },
+            body: JSON.stringify(data),
+          }
+        );
+
+        if (response.ok) {
+          const userData = {
+            username: username,
+            token: user.token,
+          };
+          dispatch(userName(userData));
+          setDisplay(true);
+        } else {
+          const error = "Incorrect Username";
+          setErrorMessage(error);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
   return (
     <div className="header">
       {display ? (
