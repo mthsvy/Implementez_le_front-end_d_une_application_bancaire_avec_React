@@ -5,11 +5,11 @@ export const login = (token) => {
   };
 };
 
-export const Logout = (dispatch) => {
-  return dispatch({
+export const Logout = () => {
+  return {
     type: "connect",
     payload: "",
-  });
+  };
 };
 
 export const userProfile = (data) => {

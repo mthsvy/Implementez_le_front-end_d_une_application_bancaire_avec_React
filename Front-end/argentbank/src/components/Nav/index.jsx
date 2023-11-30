@@ -9,7 +9,7 @@ function Nav() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const disconnect = async () => {
-    Logout(dispatch);
+    dispatch(Logout());
     navigate("/");
   };
 
