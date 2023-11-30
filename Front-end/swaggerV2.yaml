@@ -111,13 +111,6 @@ paths:
         - User Module
       summary: Account
       description: Récuperation des comptes de l'utilisateur
-      parameters:
-        - in: body
-          name: body
-          description: identifiant utilisateur
-          required: true
-          schema:
-            $ref: "#/definitions/User"
       produces:
         - application/json
       responses:
@@ -286,12 +279,10 @@ definitions:
   AccountResponse:
     type: object
     properties:
-      name:
-        type: string
-      balance:
-        type: number
-      currency:
-        type: string
+      accounts:
+        type: array
+        items:
+          $ref: "#/definitions/Account"
   Transaction:
     properties:
       date:
@@ -342,7 +333,7 @@ definitions:
   Categories:
     type: object
     properties:
-      transactions:
+      categories:
         type: array
         items:
           $ref: "#/definitions/Category"
